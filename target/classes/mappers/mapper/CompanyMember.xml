@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.CompanyMember">
+	<resultMap type="CompanyMemberVO" id="companyRel">
+		<result property="imageFile" column="imageFile" />
+		<result property="zipCode" column="zipCode" />
+		<result property="address" column="address" />
+		<result property="name" column="name" />
+		<result property="phone1" column="phone1" />
+		<result property="phone2" column="phone2" />
+		<result property="phone3" column="phone3" />
+		<result property="email" column="email" />
+		<result property="email2" column="email2" />
+		<result property="mainDeal" column="mainDeal" />
+		<result property="authNum" column="authNum" />
+		<result property="joinDate" column="joinDate" />
+	</resultMap>
+
+	<select id="selectCompanyMember" resultMap="companyRel">
+		select * from Company_Member
+	</select>
+	<insert id="insertCompanyMember" parameterType="CompanyMemberVO">
+		insert into Company_Member
+		(imageFile,zipCode,address,name,phone1,phone2,phone3,email,email2,mainDeal,autoNum,joinDate)
+		values
+		(#{imageFile},#{zipCode},#{address},#{name},#{phone1},#{phone2},#{phone3},#{email},#{email2},#{mainDeal},#{autoNum},#{joinDate})
+	</insert>
+
+	<delete id="deleteCompanyMember" parameterType="CompanyMemberVO">
+		delete Company_Member where autoNum=${autoNum}
+	</delete>
+
+	<update id="updateCompanyMember" parameterType="CompanyMemberVO">
+		update Company_Member set imageFile = #{imageFile},
+		zipCode #{zipCode},
+		address =#{address},
+		name = #{name},
+		phone1 = #{phone1},
+		phone2 = #{phone2},
+		phone3 = #{phone3},
+		email = #{email},
+		email2 = #{email2},
+		mainDeal = #{mainDeal},
+		autoNum = #{autoNum},
+		joinDate = #{joinDate}
+		where autoNum = #{autoNum}
+	</update>
+</mapper>
