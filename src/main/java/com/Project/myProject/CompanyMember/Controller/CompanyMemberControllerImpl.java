@@ -31,7 +31,6 @@ private CompanyMemberVO CompanyMemberVO;
 	  @RequestMapping(value="/CompanyMemberView.do",method ={RequestMethod.GET,RequestMethod.POST})
 	  public ModelAndView getallview(HttpServletResponse response, HttpServletRequest request) throws
 	  Exception {
-		 String a;
 		 
 	  String viewName = (String)request.getAttribute("viewName");
 	  ModelAndView mav = new ModelAndView(viewName);
