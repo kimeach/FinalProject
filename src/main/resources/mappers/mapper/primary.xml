@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mapper.Item">
+	<resultMap type="primaryVO" id="relItem">
+		<result property="itemAddr" column="itemAddr" /> <!-- 소재지 -->
+		<result property="itemBuild" column="itemBuild" /> <!-- 건물명 -->
+		<result property="itemWidth" column="itemWidth" /> <!-- 면적 -->
+		<result property="itemLayer" column="itemLayer" /> <!-- 해당층 -->
+		<result property="total_Layer" column="total_Layer" /> <!-- 총 층수 -->
+		<result property="itemParking" column="itemParking" /> <!-- 주차가능 대수 -->
+		<result property="itemPay" column="itemPay" /> <!-- 관리비 -->
+		<result property="itemMoving" column="itemMoving" /> <!-- 입주가능일 -->
+		<!-- 가격 정보 -->
+		<result property="deposit" column="deposit" /> <!-- 보증금 -->
+		<result property="ItemSelect" column="ItemSelect" /> <!-- 전/월/매 선택 -->
+		<result property="ItemPrice" column="ItemPrice" /> <!-- 선택 값에 대한 가격 -->
+		<result property="Business" column="Business" /> <!-- 취급 업소 -->
+		<result property="explain" column="explain" /> <!-- 설명 -->
+		<!-- 사진 정보 -->
+		<result property="LoadMap" column="LoadMap" /> <!-- 지도 -->
+	</resultMap>
+	<!-- 매물 등록 에대한 추가 작업 -->
+	<insert id="insertItem" parameterType="primaryVO">
+   <![CDATA[
+   insert into item(itemAddr,itemBuild,itemWidth,itemLayer,total_Layer,itemParking,itemPay,itemMoving,deposit,
+   Business,explain,LoadMap,ItemPrice,ItemSelect
+   ) values
+   (#{itemAddr},#{itemBuild},#{itemWidth},#{itemLayer},#{total_Layer},#{itemParking},#{itemPay},#{itemMoving},#{deposit},#{Business},#{explain},#{LoadMap}
+   ,#{ItemPrice},#{ItemSelect})
+   ]]>
+	</insert>
+	<!-- 매물 등록에 대한 삭제 작업 -->
+	<delete id="deleteItem" parameterType="primaryVO">
+   <![CDATA[delete agency where = #{id}
+   ]]>
+	</delete>
+	<!-- 매물 등록에 대한 수정 작업 -->
+	<update id="updateItem" parameterType="primaryVO">
+   <![CDATA[
+   update item set 
+   itemAddr = #{itemAddr}
+   itemBuild = #{itemBuild}
+   itemWidth= #{itemWidth}
+   itemLayer= #{itemLayer}
+   total_Layer = #{total_Layer}
+   itemParking = #{itemParking}
+   itemPay = #{itemPay}
+   itemMoving = #{itemMoving}
+   deposit = #{deposit}
+	ItemPrice =#{ItemPrice}
+   Business = #{Business}
+   explain = #{explain}
+   LoadMap = #{LoadMap}
+   where id = #{id}
+   ]]>
+	</update>
+	<!-- 매물 등록에 대한 모든 정보 조회 작업 -->
+	<select id="getViewItem" resultMap="relItem">
+		select * from item
+	</select>
+
+
+
+
+
+</mapper>
