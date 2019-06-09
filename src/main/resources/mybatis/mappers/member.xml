@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+	<resultMap id="memResult" type="memberVO">
+		<result property="id" column="id" />
+        <result property="pwd" column="pwd" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="joinDate" column="joinDate" />
+	</resultMap> 
+		
+	<select id="selectAllMemberList" resultMap="memResult">
+	   <![CDATA[  
+	   select * from General_Member order by joinDate desc
+	   ]]>
+	</select>
+	
+	<insert id="insertMember" parameterType="memberVO">
+	<![CDATA[
+		insert into General_Member(id,pwd,name,email) values (#{id},#{pwd},#{name},#{email})
+	]]>
+	
+	</insert>
+	
+	<select id="selectById" parameterType="String" resultType="memberVO">
+	  <![CDATA[
+	  	select * from General_Member where id=#{id}
+	    ]]>	
+	</select>
+	
+	<select id="loginById" parameterType="memberVO" resultType="memberVO">
+	  <![CDATA[
+	  	select * from General_Member where id=#{id} and pwd=#{pwd}
+	    ]]>	
+	</select>
+	
+	<update id="updateMember" parameterType="memberVO" >
+	  <![CDATA[
+	  	update General_Member set pwd =#{pwd}, name=#{name}, email=#{email} where id=#{id}
+	  ]]>
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+	  <![CDATA[
+	  	 delete from General_Member where id=#{id}
+	  ]]>
+	</delete>
+
+
+
+</mapper>
