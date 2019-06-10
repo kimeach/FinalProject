@@ -17,7 +17,7 @@ import com.myspring.pro.common.paging.Criteria;
 public interface BoardController {
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception;
 		
-	public ModelAndView listArticles( @RequestParam("keyword") String keyword,
+	public ModelAndView listArticles( @RequestParam("keyword") String keyword, Criteria criteria,
 													 HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 	public ResponseEntity addNewArticle(MultipartHttpServletRequest multipartRequest,HttpServletResponse response) throws Exception;

@@ -53,7 +53,8 @@
 	    	 return;
 	 }
 
-	 function fn_reply_form(url, articleNO, sido, gugun, groupNO){
+	 function fn_reply_form(url, articleNO, sido, gugun, groupNO){	 
+		 
 		 var form = document.createElement("form");
 		 form.setAttribute("method","post");
 		 form.setAttribute("action", url);
@@ -176,20 +177,22 @@
 				</td>
 			</tr>  -->
 			
-			<!-- id와 authNum 둘다 해당되게 수정해야함 -->
+			<!-- id와 authNum 둘다 해당되게 수정해야함 / 로그인시 답글 버튼 뜸 / 글쓴이와 로그인ID 같을경우 수정,삭제버튼 뜸 -->
 			<tr id="tr_btn">
 				<td colspan="5" align="right">
-					<%-- <c:if test="${member.id == article.id }"> --%>
-						<!-- <input type="button" value="수정" onclick="fn_enable(this.form)" /> -->
-						<input type="button" value="수정" onclick="fn_modify_article(this.form)" />
+					<c:if test="${member.id == article.id }"> 
+						<input type="button" value="수정" onclick="fn_modify_article(this.form)" /> 
+						<!-- <input type="button" value="수정" onclick="fn_modify_article(this.form)" /> -->
 						<input type="button" value="삭제" 
 								  onClick="fn_remove_article('${contextPath}/board/removeArticle.do',${article.articleNO})" />
-					<%-- </c:if> --%>				
+					 </c:if> 				
 	<%-- 				<input type="button" value="답변하기" 
 							  onClick="fn_reply_form('${isLogOn}','${contextPath}/board/replyForm.do',
 							  									'${contextPath})/member/loginForm.do',${article.articleNO})" /> --%>
-					<input type="button" value="답글" 
-					 onclick="fn_reply_form('${contextPath}/board/replyForm.do','${article.articleNO}','${article.sido}','${article.gugun}','${article.groupNO}')" /> 
+					<c:if test="${member.id != 'null'}">
+						<input type="button" value="답글" 
+						 onclick="fn_reply_form('${contextPath}/board/replyForm.do','${article.articleNO}','${article.sido}','${article.gugun}','${article.groupNO}')" />
+					</c:if> 
 					<input type="button" value="목록" onclick="backToList(this.form)" />					
 				</td>
 			</tr>

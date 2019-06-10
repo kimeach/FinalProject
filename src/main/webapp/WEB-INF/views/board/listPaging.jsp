@@ -56,7 +56,7 @@
 <body>
 <h1>　</h1>
 <table align="center" border="1"  width="80%"  >
-  <tr height="10" align="center"  bgcolor="lightgreen">
+  <tr height="10" align="center"  bgcolor="#EAEAEA">
      <td >글번호</td>
      <td >작성자</td>  
      <td> 지역 </td>            

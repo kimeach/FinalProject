@@ -43,21 +43,21 @@
 	  } 
    */
    
-  /* 	function fn_articleForm(isLogOn,articleForm,loginForm){
-  if(isLogOn != '' && isLogOn != 'false'){
-    location.href=articleForm;
-  }else{
-    alert("로그인 후 글쓰기가 가능합니다.")
-    location.href=loginForm+'?action=/board/articleForm.do';
-  }
-}  */
+ 	function fn_articleForm(isLogOn,articleForm,loginForm){
+		  if(isLogOn != '' && isLogOn != 'false'){
+		    location.href=articleForm;
+		  }else{
+		    alert("로그인 후 글쓰기가 가능합니다.")
+		    location.href=loginForm+'?action=/board/articleForm.do';
+		  }
+	}  
 	</script>
 </head>  
 
 <body>
 <h1>　</h1>
 <table align="center" border="1"  width="80%"  >
-  <tr height="10" align="center"  bgcolor="lightgreen">
+  <tr height="10" align="center"  bgcolor="#EAEAEA">
      <td >글번호</td>
      <td >작성자</td>  
      <td> 지역 </td>            
@@ -102,7 +102,11 @@
  </c:choose>
 	 <tr>
 	      <td colspan="5" align="right"> 
-		       <a href="${contextPath}/board/articleForm.do"><input type="submit" value="글쓰기" /></a>
+	      		<a href="${contextPath}/board/listPaging.do"><input type="submit" value="목록으로" /></a>
+		      	<a href="javascript:fn_articleForm
+	      									('${isLogOn}','${contextPath}/board/articleForm.do','${contextPath}/member/loginForm.do')">
+            		<input type="submit" value="글쓰기" />
+           		</a>
 		  </td>
      </tr>
      <tr>

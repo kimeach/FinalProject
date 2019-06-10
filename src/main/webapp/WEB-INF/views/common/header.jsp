@@ -23,21 +23,22 @@
 		</a>
      </td>
      <td>
-       <h1><font size=30>스프링실습 홈페이지!!</font></h1>
+       <font size=20>스프링실습 홈페이지!!</font>
      </td>
      
      <td>
-     	<a href="${contextPath}/main/main.do"><h3>메인</h3></a> 
-          
-     	<c:choose>
-          <c:when test="${isLogOn == true  && member!= null}">
-            <h3>환영합니다. ${member.name }님!</h3>
-            <a href="${contextPath}/member/logout.do"><h3>로그아웃</h3></a>
-          </c:when>
-          <c:otherwise>
-	        <a href="${contextPath}/member/loginForm.do"><h3>로그인</h3></a>	        
-	      </c:otherwise>
-	  	</c:choose>     
+     	<span>
+     		<a href="${contextPath}/main/main.do"><h4>메인</h4></a> 
+     	</span>    	         
+	     	<c:choose>
+	          <c:when test="${isLogOn == true  && member!= null}">
+	           <div> <h4>환영합니다. ${member.name }님!</h4>
+	            <a href="${contextPath}/member/logout.do"><h4>로그아웃</h4></a></<div>
+	          </c:when>
+	          <c:otherwise>
+		       <<div>> <a href="${contextPath}/member/loginForm.do"><h4>로그인</h4></a> </<div>   
+		      </c:otherwise>
+		  	</c:choose>     		
      </td>
   </tr>
 </table>

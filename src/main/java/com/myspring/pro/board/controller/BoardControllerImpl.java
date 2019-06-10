@@ -59,18 +59,36 @@ public class BoardControllerImpl implements BoardController {
 	// 검색
 	@Override
 	@RequestMapping(value="/board/searchList.do", method = { RequestMethod.GET, RequestMethod.POST })	
-	public ModelAndView listArticles(@RequestParam("keyword") String keyword,
+	public ModelAndView listArticles(@RequestParam("keyword") String keyword, Criteria criteria,
 			 										HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		String viewName = (String) request.getAttribute("viewName");
+//		System.out.println("searchList.do의 viewName======"+viewName);
+//		System.out.println("searchList.do의 keyword======"+keyword);
+//		List<ArticleVO> articlesList = boardService.listArticles(keyword);
+//		
+//		ModelAndView mav = new ModelAndView(viewName);
+//		System.out.println("건수:"+articlesList.size());
+//
+//		mav.addObject("articlesList",articlesList);
+//		mav.addObject("keyword", keyword);			
+//		return mav;
 		String viewName = (String) request.getAttribute("viewName");
 		System.out.println("searchList.do의 viewName======"+viewName);
 		System.out.println("searchList.do의 keyword======"+keyword);
-		List<ArticleVO> articlesList = boardService.listArticles(keyword);
+						
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);	
+		List<ArticleVO> articlesList = boardService.listArticles(keyword);		
+		System.out.println("건수:"+articlesList.size());
+		int total = articlesList.size();
+		pageMaker.setTotalCount(total);		
 		
 		ModelAndView mav = new ModelAndView(viewName);
-		System.out.println("건수:"+articlesList.size());
+		mav.addObject("articlesList", articlesList);
+		mav.addObject("keyword", keyword);		
+		mav.addObject("pageMaker",pageMaker);		
+		System.out.println("listPaging.do의 pageMaker =========="+pageMaker);
 
-		mav.addObject("articlesList",articlesList);
-		mav.addObject("keyword", keyword);			
 		return mav;
 	}
 	

@@ -20,12 +20,10 @@
   <title>사이드 메뉴</title>
 </head>
 <body>
-	<h1>사이드 메뉴</h1>
-
 	<h1>
-		<a href="${contextPath}/member/listMembers.do"  class="no-underline">회원관리</a><br>
-		<a href="${contextPath}/board/listPaging.do"  class="no-underline">게시판관리</a><br>
-		<a href="#"  class="no-underline">상품관리</a><br>
+		<span width="20px" border=1px><a href="${contextPath}/member/listMembers.do"  class="no-underline">회원관리</a></span>
+		<span width="20px" border=1px><a href="${contextPath}/board/listPaging.do"  class="no-underline">게시판관리</a><span>
+		<span width="20px" border=1px><a href="#"  class="no-underline">상품관리</a></span>
 	</h1>
 	
 </body>
