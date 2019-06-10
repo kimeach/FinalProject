@@ -105,7 +105,7 @@
 	      									('${isLogOn}','${contextPath}/board/articleForm.do','${contextPath}/member/loginForm.do')">
             		<input type="submit" value="글쓰기" />
            		</a>
-		    <%-- <a href="${contextPath}/board/articleForm.do"><input type="submit" value="글쓰기" /></a> --%>
+		    <%-- <a href="${contextPath}/board/articleForm.do"><input type="submit" value="글쓰기" /></a>  --%>
 		  </td>
      </tr>
      <tr>
