@@ -2,7 +2,6 @@
 <!DOCTYPE mapper
       PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="mapper.CompanyMember">
 	<resultMap type="CompanyMemberVO" id="companyRel">
 		<result property="imageFile" column="imageFile" />
@@ -18,19 +17,21 @@
 		<result property="authNum" column="authNum" />
 		<result property="joinDate" column="joinDate" />
 	</resultMap>
-
-	<select id="selectCompanyMember" resultMap="companyRel">
+	<select id="selectCompanyMember" resultMap="companyRel" parameterType="java.util.HashMap">
 		select * from Company_Member
+	</select>
+	<select id="selectCompanyChooseMember" resultMap="companyRel" parameterType="java.util.HashMap">
+		select * from Company_Member where authNum between #{minPage} and #{maxPage}
 	</select>
 	<insert id="insertCompanyMember" parameterType="CompanyMemberVO">
 		insert into Company_Member
-		(imageFile,zipCode,address,name,phone1,phone2,phone3,email,email2,mainDeal,autoNum,joinDate)
+		(imageFile,zipCode,address,name,phone1,phone2,phone3,email,email2,mainDeal,authNum,joinDate)
 		values
-		(#{imageFile},#{zipCode},#{address},#{name},#{phone1},#{phone2},#{phone3},#{email},#{email2},#{mainDeal},#{autoNum},#{joinDate})
+		(#{imageFile},#{zipCode},#{address},#{name},#{phone1},#{phone2},#{phone3},#{email},#{email2},#{mainDeal},#{authNum},#{joinDate})
 	</insert>
 
 	<delete id="deleteCompanyMember" parameterType="CompanyMemberVO">
-		delete Company_Member where autoNum=${autoNum}
+		delete Company_Member where authNum=${authNum}
 	</delete>
 
 	<update id="updateCompanyMember" parameterType="CompanyMemberVO">
@@ -44,8 +45,57 @@
 		email = #{email},
 		email2 = #{email2},
 		mainDeal = #{mainDeal},
-		autoNum = #{autoNum},
+		authNum = #{authNum},
 		joinDate = #{joinDate}
-		where autoNum = #{autoNum}
+		where authNum = #{authNum}
 	</update>
+	<select id="CompanymemberViewSelect" resultMap="companyRel">
+	select * from Company_member where 
+	</select>
+	<select id="SearchAll" parameterType="java.util.HashMap" resultMap="companyRel">
+	<![CDATA[
+	select * from (select rownum rn,name,address,authNum from Company_member where (address like '%'||#{keyword}||'%' or name like '%'||#{keyword}||'%')) where rn between #{minPage} and #{maxPage}
+	]]>
+	</select>
+	<select id="SearchName" parameterType="java.util.HashMap" resultMap="companyRel">
+	<![CDATA[
+	select * from (select rownum rn,name,address,authNum from Company_member where name like '%'||#{keyword}||'%') where rn between #{minPage} and #{maxPage}
+	]]>
+	</select>
+	<select id="SearchAddress" parameterType="java.util.HashMap" resultMap="companyRel">
+	<![CDATA[
+	select * from (select rownum rn,name,address,authNum from Company_member where address like '%'||#{keyword}||'%') where rn between #{minPage} and #{maxPage}
+	]]>
+	</select>
+	
+	<select id="countselect" parameterType="java.util.HashMap" resultMap="companyRel">
+	<![CDATA[
+	select * from item where authNum = #{authNum} and itemSelect = #{countSelect}
+	]]>
+	</select>	
+	
+	<select id="noSearchCount" parameterType="String" resultMap="companyRel">
+	<![CDATA[
+	select * from Company_member
+	]]>
+	</select>	
+
+	<select id="searchAllCount" parameterType="java.util.HashMap" resultMap="companyRel">
+	<![CDATA[
+	select * from (select * from Company_member where address like '%'||#{keyword}||'%' or name like '%'||#{keyword}||'%')
+	]]>
+	</select>	
+	
+	<select id="searchCount1" parameterType="java.util.HashMap" resultMap="companyRel">
+	<![CDATA[
+	select * from (select * from Company_member where name like '%'||#{keyword}||'%')
+	]]>
+	</select>	
+	
+	<select id="searchCount2" parameterType="java.util.HashMap" resultMap="companyRel">
+	<![CDATA[
+	select * from (select * from Company_member where address like '%'||#{keyword}||'%')
+	]]>
+	</select>	
+	
 </mapper>

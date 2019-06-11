@@ -30,6 +30,8 @@ joinDate date default sysdate
 
 
 create table item(
+authNum varchar2(60),
+autoNum varchar2(60),
 itemAddr varchar2(100),
 total_Layer varchar2(100),
 itemBuild varchar2(100), 
@@ -38,12 +40,13 @@ itemWidth varchar2(100),
 itemParking varchar2(100),
 itemPay varchar2(100),
 itemMoving varchar2(100),
-ItemPrice varchar2(100),
+itemPrice varchar2(100),
 deposit  varchar2(100),
-ItemSelect varchar2(50),
-Business varchar2(100),
+itemSelect varchar2(50),
+business varchar2(100),
 explain varchar2(100),
-LoadMap varchar2(100)
+loadMap varchar2(100),
+constraint emo_authNum_fk foreign key(authNum) references Company_member(authNum)
 );
 
 drop table item;

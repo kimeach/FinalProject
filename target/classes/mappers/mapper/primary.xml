@@ -2,10 +2,9 @@
 <!DOCTYPE mapper
       PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
 <mapper namespace="mapper.Item">
 	<resultMap type="primaryVO" id="relItem">
+		<result property="authNum" column="authNum" /> <!-- authNum -->
 		<result property="itemAddr" column="itemAddr" /> <!-- 소재지 -->
 		<result property="itemBuild" column="itemBuild" /> <!-- 건물명 -->
 		<result property="itemWidth" column="itemWidth" /> <!-- 면적 -->
@@ -16,55 +15,64 @@
 		<result property="itemMoving" column="itemMoving" /> <!-- 입주가능일 -->
 		<!-- 가격 정보 -->
 		<result property="deposit" column="deposit" /> <!-- 보증금 -->
-		<result property="ItemSelect" column="ItemSelect" /> <!-- 전/월/매 선택 -->
-		<result property="ItemPrice" column="ItemPrice" /> <!-- 선택 값에 대한 가격 -->
-		<result property="Business" column="Business" /> <!-- 취급 업소 -->
+		<result property="itemSelect" column="itemSelect" /> <!-- 전/월/매 선택 -->
+		<result property="itemPrice" column="itemPrice" /> <!-- 선택 값에 대한 가격 -->
+		<result property="business" column="business" /> <!-- 취급 업소 -->
 		<result property="explain" column="explain" /> <!-- 설명 -->
 		<!-- 사진 정보 -->
-		<result property="LoadMap" column="LoadMap" /> <!-- 지도 -->
+		<result property="loadMap" column="loadMap" /> <!-- 지도 -->
 	</resultMap>
 	<!-- 매물 등록 에대한 추가 작업 -->
 	<insert id="insertItem" parameterType="primaryVO">
    <![CDATA[
-   insert into item(itemAddr,itemBuild,itemWidth,itemLayer,total_Layer,itemParking,itemPay,itemMoving,deposit,
-   Business,explain,LoadMap,ItemPrice,ItemSelect
+   insert into item(authNum,autoNum,itemAddr,itemBuild,itemWidth,itemLayer,total_Layer,itemParking,itemPay,itemMoving,deposit,
+   Business,explain,loadMap,ItemPrice,ItemSelect
    ) values
-   (#{itemAddr},#{itemBuild},#{itemWidth},#{itemLayer},#{total_Layer},#{itemParking},#{itemPay},#{itemMoving},#{deposit},#{Business},#{explain},#{LoadMap}
-   ,#{ItemPrice},#{ItemSelect})
+   (#{authNum},autoNum.nextval,#{itemAddr},#{itemBuild},#{itemWidth},#{itemLayer},#{total_Layer},#{itemParking},#{itemPay},#{itemMoving},#{deposit},#{business},#{explain},#{loadMap}
+   ,#{itemPrice},#{itemSelect})
    ]]>
 	</insert>
 	<!-- 매물 등록에 대한 삭제 작업 -->
-	<delete id="deleteItem" parameterType="primaryVO">
-   <![CDATA[delete agency where = #{id}
+	<delete id="deleteItem" parameterType="java.util.HashMap">
+   <![CDATA[delete item where authNum = #{authNum} and autoNum = #{autoNum}
    ]]>
 	</delete>
 	<!-- 매물 등록에 대한 수정 작업 -->
-	<update id="updateItem" parameterType="primaryVO">
+	<update id="updateItem" parameterType="java.util.HashMap">
    <![CDATA[
    update item set 
-   itemAddr = #{itemAddr}
-   itemBuild = #{itemBuild}
-   itemWidth= #{itemWidth}
-   itemLayer= #{itemLayer}
-   total_Layer = #{total_Layer}
-   itemParking = #{itemParking}
-   itemPay = #{itemPay}
-   itemMoving = #{itemMoving}
-   deposit = #{deposit}
-	ItemPrice =#{ItemPrice}
-   Business = #{Business}
-   explain = #{explain}
-   LoadMap = #{LoadMap}
-   where id = #{id}
+   authNum = #{authNum},
+   autoNum = #{autoNum},
+   itemAddr = #{itemAddr},
+   itemBuild = #{itemBuild},
+   itemWidth= #{itemWidth},
+   itemLayer= #{itemLayer},
+   total_Layer = #{total_Layer},
+   itemParking = #{itemParking},
+   itemPay = #{itemPay},
+   itemMoving = #{itemMoving},
+   deposit = #{deposit},
+   itemPrice =#{itemPrice},
+   business = #{business},
+   explain = #{explain},
+   loadMap = #{loadMap}
+   where authNum = #{authNum} and autoNum = #{autoNum}
    ]]>
 	</update>
 	<!-- 매물 등록에 대한 모든 정보 조회 작업 -->
 	<select id="getViewItem" resultMap="relItem">
 		select * from item
 	</select>
-
-
-
-
-
+	<select id="itemSelect" resultMap="relItem">
+	select * from item where authNum = #{authNum}
+	</select>
+	
+	<select id="getItemViewSelect" parameterType="java.util.HashMap" resultMap="relItem">
+	select * from item where authNum =#{authNum} and autoNum = #{autoNum}	
+	</select>
+	
+	<select id ="getSelectSearch" parameterType="java.util.HashMap" resultMap="relItem" >
+	select * from item where itemSelect =#{itemSelect} and loadMap = #{loadMap} and itemPrice between #{minPrice} and #{maxPrice}
+	
+	</select>
 </mapper>

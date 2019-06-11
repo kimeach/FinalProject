@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -11,7 +12,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css?ver=1">
+	href="${path}/resources/css/style.css?ver=1">
 <link rel="stylesheet" href="css/style.css">
 <meta charset="utf-8">
 <title>매물 등록</title>
@@ -22,18 +23,15 @@
 	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
 	font-size: 12px;
 }
-
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active {
 	color: #000;
 	text-decoration: none;
 }
-
 .map_wrap {
 	position: relative;
 	width: 100%;
 	height: 500px;
 }
-
 #menu_wrap {
 	position: absolute;
 	top: 0;
@@ -48,11 +46,9 @@
 	font-size: 12px;
 	border-radius: 10px;
 }
-
 .bg_white {
 	background: #fff;
 }
-
 #menu_wrap hr {
 	display: block;
 	height: 1px;
@@ -60,23 +56,18 @@
 	border-top: 2px solid #5F5F5F;
 	margin: 3px 0;
 }
-
 #menu_wrap .option {
 	text-align: center;
 }
-
 #menu_wrap .option p {
 	margin: 10px 0;
 }
-
 #menu_wrap .option button {
 	margin-left: 5px;
 }
-
 #placesList li {
 	list-style: none;
 }
-
 #placesList .item {
 	position: relative;
 	border-bottom: 1px solid #888;
@@ -84,37 +75,30 @@
 	cursor: pointer;
 	min-height: 65px;
 }
-
 #placesList .item span {
 	display: block;
 	margin-top: 4px;
 }
-
 #placesList .item h5, #placesList .item .info {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
-
 #placesList .item .info {
 	padding: 10px 0 10px 55px;
 }
-
 #placesList .info .gray {
 	color: #8a8a8a;
 }
-
 #placesList .info .jibun {
 	padding-left: 26px;
 	background:
 		url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png)
 		no-repeat;
 }
-
 #placesList .info .tel {
 	color: #009900;
 }
-
 #placesList .item .markerbg {
 	float: left;
 	position: absolute;
@@ -125,47 +109,36 @@
 		url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
 		no-repeat;
 }
-
 #placesList .item .marker_1 {
 	background-position: 0 -10px;
 }
-
 #placesList .item .marker_2 {
 	background-position: 0 -56px;
 }
-
 #placesList .item .marker_3 {
 	background-position: 0 -102px
 }
-
 #placesList .item .marker_4 {
 	background-position: 0 -148px;
 }
-
 #placesList .item .marker_5 {
 	background-position: 0 -194px;
 }
-
 #placesList .item .marker_6 {
 	background-position: 0 -240px;
 }
-
 #placesList .item .marker_7 {
 	background-position: 0 -286px;
 }
-
 #placesList .item .marker_8 {
 	background-position: 0 -332px;
 }
-
 #placesList .item .marker_9 {
 	background-position: 0 -378px;
 }
-
 #placesList .item .marker_10 {
 	background-position: 0 -423px;
 }
-
 #placesList .item .marker_11 {
 	background-position: 0 -470px;
 }
@@ -203,8 +176,16 @@
 }
 </style>
 </head>
+<script src="${path}/resources/jquery.js"></script>
+<script>
+$(function(){
+$("")	
+})
+
+</script>
+
 <body>
-	<form action="ItemInsertResult.do" method="post"
+	<form action="ItemInsertResult.do?authNum=${authNum}" name="frmItem" method="post"
 		enctype="multipart/form-data">
 		<div class="container" style="padding-left: 10%">
 			<!-- 매물 등록화면 -->
@@ -221,9 +202,7 @@
 					<td style="width: 30%;"><input type="text" style="width: 100%"
 						name="total_Layer"></td>
 				</tr>
-				<h4>
-					<b>기본정보</b>
-				</h4>
+				<h4><b>기본정보</b></h4>
 				<tr>
 					<td style="width: 20%;">건물명</td>
 					<td style="width: 30%;"><input type="text" style="width: 100%"
@@ -259,9 +238,7 @@
 					<td></td>
 					<td></td>
 				</tr>
-
 			</table>
-
 			<h4>
 				<b>가격 정보</b>
 			</h4>
@@ -275,15 +252,15 @@
 				</tr>
 
 				<tr>
-					<td style="width: 20%;"><select name="ItemSelect" id=""
+					<td style="width: 20%;"><select name="itemSelect" id=""
 						style="height: 30px; width: 50%;">
 							<option value="">선택</option>
-							<option value="bargain">매매</option>
-							<option value="charter">전세</option>
-							<option value="monthly">월세</option>
+							<option value="매매">매매</option>
+							<option value="전세">전세</option>
+							<option value="월세">월세</option>
 					</select>&nbsp; 가격</td>
 					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="ItemPrice"></td>
+						name="itemPrice"></td>
 					<td></td>
 					<td></td>
 				</tr>
@@ -291,7 +268,7 @@
 				<tr>
 					<td style="width: 20%;">취급업소</td>
 					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="Business"></td>
+						name="business"></td>
 					<td></td>
 					<td></td>
 				</tr>
@@ -303,7 +280,6 @@
 					<td></td>
 				</tr>
 			</table>
-
 			<h4>
 				<b>사진 정보</b>
 			</h4>
@@ -316,13 +292,13 @@
 					<td style="width: 50%; height: 100px;"><input type="file"
 						name="picture"></td>
 					<td style="width: 50%; height: 100px;"><input type="text"
-						id="sample5_address" placeholder="주소" name="LoadMap"> <input
+						id="sample5_address" placeholder="주소" name="loadMap"> <input
 						type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 						<div id="map"
-							style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
+						style="width: 300px; height: 300px; margin-top: 10px; display: none"></div>
 						<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 						<script
-							src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9cc1522c95aa35553841718cfe7fb8d2&libraries=services"></script>
+						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9cc1522c95aa35553841718cfe7fb8d2&libraries=services"></script>
 						<script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
@@ -370,8 +346,8 @@
 				<tr>
 					<td class="text-center"><input type="submit" value="등록하기"
 						class="btn btn-primary btn-lg" style="margin: 0 0 0 -22%">
-						<span style="margin: 0 0 0 5%;"> </span> <input type="button"
-						value="취소" onclick="javascript:location.href='ItemList.do'"
+						<span style="margin: 0 0 0 5%;"> </span> 
+						<input type="button" value="취소" onclick="javascript:location.href='../member/CompanyMemberView.do?pg=1';"
 						class="btn btn-primary btn-lg"></td>
 				</tr>
 			</table>
