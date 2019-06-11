@@ -92,7 +92,7 @@
 				</tr>
 				<tr>
 					<td style="width: 20%;">입주 가능일</td>
-					<td style="width: 30%;">${item.itemMoving}</td>
+					<td style="width: 30%;">${item.itemYear}년 ${item.itemMonth}월 ${item.itemDay}일</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>

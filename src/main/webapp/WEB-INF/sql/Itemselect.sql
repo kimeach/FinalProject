@@ -12,7 +12,7 @@ select * from company_member where authNum between 1 and 10 order by authNum asc
 	 
 	 select *from item order by autoNum asc;
 	 
-	 
+	 commit
 	 
 	 delete item where autonum = 11;
 	 

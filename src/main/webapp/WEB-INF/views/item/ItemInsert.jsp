@@ -221,13 +221,13 @@ $("")
 				<tr>
 					<td style="width: 20%;">입주 가능일</td>
 					<td style="width: 30%;">
-					<select name="year"><script>
+					<select name="itemYear"><script>
 					for(var i=2019;i<=2030;i++){document.write('<option value='+i+'>'+i+'</option>');}
 					</script></select>년 &nbsp;
-					<select name="month"><script>
+					<select name="itemMonth"><script>
 					for(var i =1;i<=12;i++){document.write('<option value='+i+'>'+i+'</option>');}
 					</script></select>월 &nbsp;
-					<select name="day"><script>
+					<select name="itemDay"><script>
 					for(var i =1;i<=31;i++){document.write('<option '+i+'>'+i+'</option>');}
 					</script></select>일 &nbsp;
 					</td>
