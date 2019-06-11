@@ -1,17 +1,11 @@
 package com.Project.myProject.CompanyMember.DAO;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.Project.myProject.Paging;
-import com.Project.myProject.CompanyMember.VO.CompanyMemberVO;
 @Repository("CompanyMemberDAO")
 public class CompanyMemberDAOImpl implements CompanyMemberDAO{
 @Autowired
@@ -26,8 +20,6 @@ public List<String> selectChooseMember(int pg) throws Exception {
 // 각각의 선택 갯수 구하는 메소드
 @Override
 	public List<String> selectMember(String select,String keyword) throws Exception {
-		
-	
 	if(select !=null) {
 	  if(select.equals("searchAll")) 
 		  return spring.selectList("mapper.CompanyMember.searchAllCount",keyword);//all 검색 
@@ -52,7 +44,7 @@ public List<String> selectChooseMember(int pg) throws Exception {
 	else if(searchSelect.equals("search2")) 
 		return spring.selectList("mapper.CompanyMember.SearchAddress",page);
 	}
-	return spring.selectList("mapper.CompanyMember.selectCompanyChooseMember",pages);
+	return spring.selectList("mapper.CompanyMember.SearchNone",pages);
 }
 @Override
 	public List<String> selectCount(int authNum, String itemSelect) throws Exception {
@@ -62,22 +54,4 @@ public List<String> selectChooseMember(int pg) throws Exception {
 	return null;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

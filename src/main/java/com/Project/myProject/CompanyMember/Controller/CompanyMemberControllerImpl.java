@@ -19,7 +19,6 @@ import com.Project.myProject.CompanyMember.Service.CompanyMemberService;
 private CompanyMemberService CompanyMemberService;	
 @Autowired
 private CompanyMemberVO CompanyMemberVO; 
-
 private String select=null;
 private String keyword=null;
   @Override
@@ -31,7 +30,8 @@ private String keyword=null;
   String viewName = (String)request.getAttribute("viewName");
   ModelAndView mav = new ModelAndView(viewName);
   List<String>	Chooselist = new ArrayList<String>();
- if((request.getParameter("searchSelect") != null && request.getParameter("searchKeyWord") != null)) {
+ 
+  if((request.getParameter("searchSelect") != null && request.getParameter("searchKeyWord") != null)) {
  select = request.getParameter("searchSelect");
  keyword = request.getParameter("searchKeyWord"); 
  }
@@ -52,13 +52,11 @@ private String keyword=null;
 	keyword=null;
 	select=null;
 	}
-			 
 	  System.out.println("pg : "+pg);
 	  System.out.println("선택 : "+select+", 키워드 : "+keyword);
 	  Chooselist = CompanyMemberService.SearchMember(pg,select,keyword);
 	  mav.addObject("list",Chooselist);
   }
- 
   List<String> lists = CompanyMemberService.SelectMember(select,keyword); // 총 갯수
    // 총 페이지
   Paging paging = new Paging();

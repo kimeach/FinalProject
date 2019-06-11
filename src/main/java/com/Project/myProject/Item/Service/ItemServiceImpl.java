@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Project.myProject.Paging;
 import com.Project.myProject.Item.DAO.ItemDAO;
 import com.Project.myProject.Item.VO.primaryVO;
 
@@ -48,7 +49,11 @@ public List<primaryVO> ItemViewSelect(String authNum,String autoNum) throws Exce
 	
 	return ItemDAO.ItemViewSelect(numMap);
 }
-	
+	@Override
+		public List<String> SearchMember(int pg, String select, String keyword,Paging pa)
+					   throws Exception {
+			return ItemDAO.SearchMember(pg,select,keyword,pa); 
+		}
 
 
 

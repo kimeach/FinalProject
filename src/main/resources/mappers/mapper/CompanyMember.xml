@@ -20,9 +20,7 @@
 	<select id="selectCompanyMember" resultMap="companyRel" parameterType="java.util.HashMap">
 		select * from Company_Member
 	</select>
-	<select id="selectCompanyChooseMember" resultMap="companyRel" parameterType="java.util.HashMap">
-		select * from Company_Member where authNum between #{minPage} and #{maxPage}
-	</select>
+
 	<insert id="insertCompanyMember" parameterType="CompanyMemberVO">
 		insert into Company_Member
 		(imageFile,zipCode,address,name,phone1,phone2,phone3,email,email2,mainDeal,authNum,joinDate)
@@ -66,6 +64,10 @@
 	<![CDATA[
 	select * from (select rownum rn,name,address,authNum from Company_member where address like '%'||#{keyword}||'%') where rn between #{minPage} and #{maxPage}
 	]]>
+	
+	</select>
+	<select id="SearchNone" resultMap="companyRel" parameterType="java.util.HashMap">
+	select * from Company_Member where authNum between #{minPage} and #{maxPage}
 	</select>
 	
 	<select id="countselect" parameterType="java.util.HashMap" resultMap="companyRel">

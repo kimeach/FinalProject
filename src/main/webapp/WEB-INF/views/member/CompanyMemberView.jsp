@@ -65,7 +65,7 @@
 	<tr><td style="width: 70%;"><span>보유 매물 (매: 0 / 전: 0 /월 :0)</span> 
 	<span style="margin: 0 0 0 40%"></span> <input type="button"
 	class="btn btn-primary" value="매물 보기"
-	onclick="javascript:location.href='${path}/item/ItemSelect.do?authNum=${item.authNum}';"></td>
+	onclick="javascript:location.href='${path}/item/ItemSelect.do?authNum=${item.authNum}&pg=1';"></td>
 	</tr>
 	</table>
 	</c:forEach>

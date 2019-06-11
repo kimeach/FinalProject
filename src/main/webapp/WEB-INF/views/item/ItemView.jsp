@@ -1,7 +1,9 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri ="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html lang="en" dir="ltr">
 <head>
@@ -66,25 +68,25 @@
 				<b>매물 상세보기</b>
 			</h1>
 			<br>
-			
+			<% DecimalFormat formatter = new DecimalFormat("###,### 만원"); %>
 			<c:forEach items="${list}" var="item">
 			<table class="table table-striped" border="1" style="width: 80%">
 				<tr>
 					<td style="width: 20%;">소재지</td>
 					<td style="width: 30%;">${item.itemAddr}</td>
 					<td style="width: 20x%;">총 층수</td>
-					<td style="width: 30%;">${item.total_Layer}</td>
+					<td style="width: 30%;">${item.total_Layer} 층</td>
 				</tr>
 				<h4><b>기본정보</b></h4>
 				<tr>
 					<td style="width: 20%;">건물명</td>
 					<td style="width: 30%;">${item.itemBuild}</td>
 					<td style="width: 20%;">해당 층</td>
-					<td style="width: 30%;">${item.itemLayer}</td>
+					<td style="width: 30%;">${item.itemLayer} 층</td>
 				</tr>
 				<tr>
 					<td style="width: 20%;">면적</td>
-					<td style="width: 30%;">${item.itemWidth}</td>
+					<td style="width: 30%;">${item.itemWidth} ㎥</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>
@@ -96,13 +98,14 @@
 				</tr>
 				<tr>
 					<td style="width: 20%;">주차 가능 대수</td>
-					<td style="width: 30%;">${item.itemParking}</td>
+					<td style="width: 30%;">${item.itemParking} 대</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>
 				<tr>
+
 					<td>관리비</td>
-					<td>${item.itemPay}</td>
+					<td><fmt:formatNumber value="${item.itemPay}" pattern="#,###" /> 만원</td>
 					<td></td>
 					<td></td>
 				</tr>
@@ -113,14 +116,14 @@
 			<table class="table table-striped" border="1" style="width: 80%">
 				<tr>
 					<td style="width: 20%;">보증금</td>
-					<td style="width: 30%;">${item.deposit}</td>
+					<td style="width: 30%;"><fmt:formatNumber value="${item.deposit}" pattern="#,###"/> 만원</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>
 
 				<tr>
 					<td style="width: 20%;">${item.itemSelect} &nbsp; 가격</td>
-					<td style="width: 30%;">${item.itemPrice}</td>
+					<td style="width: 30%;"><fmt:formatNumber value="${item.itemPrice}" pattern="#,###"/> 만원</td>
 					<td></td>
 					<td></td>
 				</tr>
@@ -400,7 +403,7 @@ function removeAllChildNods(el) {
 	onclick="javascript:location.href='${path}/item/ItemResult.do?status=delete&authNum=${item.authNum}&autoNum=${item.autoNum}';" style="margin: 0 0 0 3%">
 	<span style="margin: 0 0 0 3%;">
 	 </span> 
-	<input type="button" value="취소" onclick="javascript:location.href='${path}/item/ItemSelect.do?authNum=${item.authNum}';"
+	<input type="button" value="취소" onclick="javascript:location.href='${path}/item/ItemSelect.do?authNum=${item.authNum}&pg=1';"
 	class="btn btn-primary btn-lg"></td>
 				</tr>
 			</table>

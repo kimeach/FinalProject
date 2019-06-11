@@ -196,45 +196,54 @@ $("")
 			<table class="table table-striped" border="1" style="width: 80%">
 				<tr>
 					<td style="width: 20%;">소재지</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
+					<td style="width: 30%;"><input type="text" style="width: 80%"
 						name="itemAddr"></td>
 					<td style="width: 20x%;">총 층수</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="total_Layer"></td>
+					<td style="width: 30%;"><input type="text" style="width: 80%"
+						name="total_Layer"> 층</td>
 				</tr>
 				<h4><b>기본정보</b></h4>
-				<tr>
+				<tr> 
 					<td style="width: 20%;">건물명</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
+					<td style="width: 30%;"><input type="text" style="width: 80%"
 						name="itemBuild"></td>
 					<td style="width: 20%;">해당 층</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="itemLayer"></td>
+					<td style="width: 30%;"><input type="text" style="width: 80%"
+						name="itemLayer"> 층</td>
 				</tr>
 				<tr>
 					<td style="width: 20%;">면적</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="itemWidth"></td>
+					<td style="width: 30%;"><input type="text" style="width: 80%"
+						name="itemWidth">㎥</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>
 				<tr>
 					<td style="width: 20%;">입주 가능일</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="itemMoving"></td>
+					<td style="width: 30%;">
+					<select name="year"><script>
+					for(var i=2019;i<=2030;i++){document.write('<option value='+i+'>'+i+'</option>');}
+					</script></select>년 &nbsp;
+					<select name="month"><script>
+					for(var i =1;i<=12;i++){document.write('<option value='+i+'>'+i+'</option>');}
+					</script></select>월 &nbsp;
+					<select name="day"><script>
+					for(var i =1;i<=31;i++){document.write('<option '+i+'>'+i+'</option>');}
+					</script></select>일 &nbsp;
+					</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>
 				<tr>
 					<td style="width: 20%;">주차 가능 대수</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="itemParking"></td>
+					<td style="width: 30%;"><input type="text" style="width: 80%"
+						name="itemParking"> 대</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>
 				<tr>
 					<td>관리비</td>
-					<td><input type="text" style="width: 100%" name="itemPay"></td>
+					<td><input type="text" style="width: 80%" name="itemPay"> 만원</td>
 					<td></td>
 					<td></td>
 				</tr>
@@ -245,8 +254,8 @@ $("")
 			<table class="table table-striped" border="1" style="width: 80%">
 				<tr>
 					<td style="width: 20%;">보증금</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="deposit"></td>
+					<td style="width: 30%;"><input type="text" style="width: 80%"
+						name="deposit"> 만원</td>
 					<td style="width: 20%;"></td>
 					<td style="width: 30%;"></td>
 				</tr>
@@ -259,22 +268,22 @@ $("")
 							<option value="전세">전세</option>
 							<option value="월세">월세</option>
 					</select>&nbsp; 가격</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
-						name="itemPrice"></td>
+					<td style="width: 30%;"><input type="text" style="width: 80%"
+						name="itemPrice"> 만원</td>
 					<td></td>
 					<td></td>
 				</tr>
 
 				<tr>
 					<td style="width: 20%;">취급업소</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
+					<td style="width: 30%;"><input type="text" style="width: 80%"
 						name="business"></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td style="width: 20%;">매물 상세 설명</td>
-					<td style="width: 30%;"><input type="text" style="width: 100%"
+					<td style="width: 30%;"><input type="text" style="width: 80%"
 						name="explain"></td>
 					<td></td>
 					<td></td>

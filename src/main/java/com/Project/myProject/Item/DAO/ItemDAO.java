@@ -3,6 +3,7 @@ package com.Project.myProject.Item.DAO;
 import java.util.List;
 import java.util.Map;
 
+import com.Project.myProject.Paging;
 import com.Project.myProject.Item.VO.primaryVO;
 
 public interface ItemDAO {
@@ -13,4 +14,6 @@ public List<primaryVO> ItemSelect(String authNum) throws Exception;
 public List<primaryVO> ItemAllSelect() throws Exception;
 public List<primaryVO> ItemViewSelect(Map<String,Object> lists) throws Exception;
 public List<String> getSelectSearch() throws Exception;
+public List<String> SearchMember(int pg,String select,String keyword,Paging pa) throws Exception; 
+
 }

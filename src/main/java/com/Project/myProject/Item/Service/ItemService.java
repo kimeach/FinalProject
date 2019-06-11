@@ -3,6 +3,7 @@ package com.Project.myProject.Item.Service;
 import java.util.List;
 import java.util.Map;
 
+import com.Project.myProject.Paging;
 import com.Project.myProject.Item.VO.primaryVO;
 
 public interface ItemService {
@@ -11,5 +12,5 @@ public interface ItemService {
 	public int ItemUpdate(String id) throws Exception;
 	public List<primaryVO> ItemSelect(String authNum) throws Exception;
 	public List<primaryVO> ItemViewSelect(String authNum,String autoNum) throws Exception;
-
+	public List<String> SearchMember(int pg,String select,String keyword,Paging pa) throws Exception;
 }
