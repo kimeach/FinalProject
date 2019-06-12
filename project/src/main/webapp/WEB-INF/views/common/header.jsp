@@ -11,34 +11,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>헤더</title>
+  	<meta charset="UTF-8">
+	<title>헤더</title>
 </head>
-<link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
 <body>
-<table border=0  width="100%">
-  <tr>
-     <td>
-		<a href="${contextPath}/review/reviewList.do">
-			<img src="${contextPath}/resources/image/main.jpg" style="width: 70px; height: 70px"/>
-		</a>
-     </td>
-     <td>
-       <h1><font size=30>노숙자가 되지말자</font></h1>
-     </td>
-     <td>
-       <c:choose>
-          <c:when test="${isLogOn == true  && member!= null}">
-            <h3>환영합니다. ${member.name }님!</h3>
-            <a href="${contextPath}/member/logout.do"><h3>로그아웃</h3></a>
-          </c:when>
-          <c:otherwise>
-	        <a href="${contextPath}/member/loginForm.do"><h3>로그인</h3></a>
-	      </c:otherwise>
-	   </c:choose>     
-     </td>
-  </tr>
-</table>
-
-
+	<table border=0  width="8%" align="center">
+	  <tr align>  
+		  <td width="10%">
+				<a href="${contextPath}/main/main.do">
+					<img src="${contextPath}/resources/image/zip.png" width="50px" height="50px" /></a> 
+		        <!-- 	<font size=2px>스프링실습 홈페이지!!</font> -->
+		  </td>	     
+	      <td width="90%">     	
+	     	<%-- 	<a href="${contextPath}/main/main.do" ><h4>메인</h4></a>      	    --%>	         
+		     	<c:choose>
+		          <c:when test="${isLogOn == true  && member!= null}">
+		           	<div> <h4>${member.name }님!</h4>
+		            <a href="${contextPath}/member/logout.do"><h4>로그아웃</h4></a> </div>
+		          </c:when>
+		          <c:otherwise>
+			       	<div> <a href="${contextPath}/member/loginForm.do"><h4>로그인</h4></a> </<div>   
+			      </c:otherwise>
+			  	</c:choose>     		
+	     </td>
+	  </tr>
+	</table>
+	
 </body>
 </html>

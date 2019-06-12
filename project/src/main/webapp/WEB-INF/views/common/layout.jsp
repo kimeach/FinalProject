@@ -12,38 +12,45 @@
       #container {
         width: 100%;
         margin: 0px auto;
-          text-align:center;
+        text-align:center;
         border: 0px solid #bcbcbc;
       }
       #header {
-        padding: 5px;
+       width: 100%;
+        padding: 0px;
         margin-bottom: 5px;
         border: 0px solid #bcbcbc;
-         background-color: lightgreen;
-      }
-      #sidebar-left {
-        width: 15%;
-        height:700px;
-        padding: 5px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        float: left;
-         background-color: yellow;
-        border: 0px solid #bcbcbc;
-        font-size:10px;
+        background-color: #EAEAEA;
       }
       #content {
-        width: 75%;
+        width: 100%;
+        height:630px;
         padding: 5px;
         margin-right: 5px;
         float: left;
         border: 0px solid #bcbcbc;
       }
-      #footer {
-        clear: both;
-        padding: 5px;
+      
+      #sidebar-down {
+        padding: 3px 0px ;
+        margin-bottom: 5px;
         border: 0px solid #bcbcbc;
-         background-color: lightblue;
+        background-color: #EAEAEA;
+        width: 100%;     
+        font-size:10px;  
+       /*  padding: 5px;       
+     	margin-right: 5px;
+        float: left; 
+        background-color: #E7E7E7;
+        border: 0px solid #bcbcbc;
+        font-size:10px; */
+      }
+      #footer {
+      	width: 100%;    
+        clear: both;
+        padding: 0px ;
+        border: 0px solid #bcbcbc;
+        background-color: #EAEAEA;
       }
       
     </style>
@@ -53,6 +60,9 @@
     <div id="container">
       <div id="header">
          <tiles:insertAttribute name="header"/>
+      </div>
+      <div id="sidebar-down">
+          <tiles:insertAttribute name="side"/> 
       </div>
       <div id="content">
           <tiles:insertAttribute name="body"/>
