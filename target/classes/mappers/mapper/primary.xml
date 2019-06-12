@@ -90,7 +90,7 @@
 	<!-- 전세 -->
 	<select id="Search2"  parameterType="java.util.HashMap" resultMap="relItem">
 	<![CDATA[
-	select * from (select rownum rn,authNum,autoNum,itemAddr,itemBuild,itemWidth,itemLayer,total_Layer,itemParking,itemPay,deposit,business,explain,loadMap,ItemPrice,ItemSelectitemYear,itemMonth,itemDay
+	select * from (select rownum rn,authNum,autoNum,itemAddr,itemBuild,itemWidth,itemLayer,total_Layer,itemParking,itemPay,deposit,business,explain,loadMap,ItemPrice,ItemSelect,itemYear,itemMonth,itemDay
 	 from item where loadMap like '%'||#{keyword}||'%' and itemSelect = '전세' and itemPrice between #{minPrice} and #{maxPrice}) where rn between #{minPage} and #{maxPage} order by autonum desc
 	]]>
 	</select>

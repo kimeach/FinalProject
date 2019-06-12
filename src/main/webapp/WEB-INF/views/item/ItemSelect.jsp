@@ -20,7 +20,7 @@ a {
 <body>
 	<div class="container" style="padding-left: 10%;">
 		<h1>매물 조회</h1>
-		<div style="padding-left:60%;"> <a href="${path}/item/ItemInsert.do"><b>매물 등록</b></a><span style="padding-left:5%;"></span> 
+		<div style="padding-left:60%;"> <a href="${path}/item/ItemInsert.do?authNum=${authNum}"><b>매물 등록</b></a><span style="padding-left:5%;"></span> 
 		<a href="${path}/member/CompanyMemberView.do?pg=1"> <b>중개사무소 찾기</b> </a> </div>
 		<div class="search">
 			<form action = "${path}/item/ItemSelect.do?authNum=${authNum}&pg=${pg}" method ="post">

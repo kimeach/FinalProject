@@ -13,9 +13,6 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css?ver=1">
-<link rel="stylesheet" href="css/style.css">
 <meta charset="utf-8">
 <title>매물 상세보기</title>
   <style>

@@ -4,10 +4,8 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.Project.myProject.Item.VO.primaryVO"
-			alias="primaryVO" />
+		<typeAlias type="com.Project.myProject.Item.VO.primaryVO" alias="primaryVO" />
 		<typeAlias
-			type="com.Project.myProject.CompanyMember.VO.CompanyMemberVO"
-			alias="CompanyMemberVO" />
+			type="com.Project.myProject.CompanyMember.VO.CompanyMemberVO" alias="CompanyMemberVO" />
 	</typeAliases>
 </configuration>

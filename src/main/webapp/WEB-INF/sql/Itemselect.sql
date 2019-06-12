@@ -14,7 +14,7 @@ select * from company_member where authNum between 1 and 10 order by authNum asc
 	 
 	 commit
 	 
-	 delete item where autonum = 11;
+	 delete item where autonum = 19;
 	 
 select * from (select rownum rn,authNum,autoNum,itemAddr,itemBuild,itemWidth,itemLayer,total_Layer,itemParking,itemPay,itemMoving,deposit,business,explain,loadMap,ItemPrice,ItemSelect
 	 from item) where rn between 1 and 10

@@ -167,7 +167,7 @@ public class ItemControllerImpl implements ItemController {
 	int result = ItemService.ItemDelete(authNum,autoNum);
 	if(result != 0) {
 	message +="alert('삭제 되었습니다.');";
-	message +="location.href='./ItemSelect.do?authNum="+authNum+"'";
+	message +="location.href='./ItemSelect.do?authNum="+authNum+"&pg=1';";
 	}
 	else if(result == 0) {
 	message +="alert('삭제에 실패하였습니다.');";
