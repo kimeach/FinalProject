@@ -38,6 +38,15 @@ public class ReviewControllerImpl implements ReviewController{
 	@Autowired
 	ReviewVO reviewVO;
 	
+	/** 메인 페이지 **/
+	@Override
+	@RequestMapping(value="/main/main.do", method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String)request.getAttribute("viewName");
+		ModelAndView mav = new ModelAndView(viewName);
+		return mav;
+	}
+	
 	/** 후기 리스트 페이지 **/
 	@Override
 	@RequestMapping(value="/review/reviewList.do", 

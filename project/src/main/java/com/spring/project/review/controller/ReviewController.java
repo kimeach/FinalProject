@@ -29,4 +29,6 @@ public interface ReviewController {
 	// 후기 삭제
 	public ModelAndView removeReview(@RequestParam("reviewNO") int reviewNO,
 			HttpServletRequest request, HttpServletResponse response) throws Exception;
+	// 메인
+	public ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

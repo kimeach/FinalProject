@@ -6,6 +6,7 @@
 	<definition template="/WEB-INF/views/common/layout.jsp" name="baseLayout">
 		<put-attribute name="title" value=""/>
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/common/side.jsp"/>
 		<put-attribute name="body" value=""/>
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
 	</definition>	
@@ -20,5 +21,9 @@
     <definition name="/review/viewReview" extends="baseLayout">
         <put-attribute name="title" value="후기 수정 창 " />
         <put-attribute name="body" value="/WEB-INF/views/review/viewReview.jsp" />
-    </definition>       
+    </definition>
+    <definition name="/main/main" extends="baseLayout">
+        <put-attribute name="title" value="main " />
+        <put-attribute name="body" value="/WEB-INF/views/common/main.jsp" />
+    </definition>         
 </tiles-definitions>   
