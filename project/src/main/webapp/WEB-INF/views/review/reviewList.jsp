@@ -46,7 +46,7 @@ function readURL(input){
 	.np{font-family: 'Jeju Gothic', sans-serif;}
 </style>
 <body>
-	<div class="container" align="center" style="margin-left:30%">
+	<div class="container" align="center" style="margin-left:25%">
 		<form name="frmReview" method="POST" action="${contextPath}" enctype="multipart/form-data">
 				<p class="np" style="margin-left:90%;">
 					<input type="button" value="후기 작성" onclick="javascript:location.href='${contextPath}/review/reviewForm.do';" class="btn btn-secondary" >

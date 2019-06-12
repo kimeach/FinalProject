@@ -20,7 +20,6 @@
 		  <td width="10%">
 				<a href="${contextPath}/main/main.do">
 					<img src="${contextPath}/resources/image/zip.png" width="50px" height="50px" /></a> 
-		        <!-- 	<font size=2px>스프링실습 홈페이지!!</font> -->
 		  </td>	     
 	      <td width="90%">     	
 	     	<%-- 	<a href="${contextPath}/main/main.do" ><h4>메인</h4></a>      	    --%>	         

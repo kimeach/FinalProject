@@ -31,7 +31,7 @@ import com.spring.project.review.vo.ReviewVO;
 
 @Controller("reviewController")
 public class ReviewControllerImpl implements ReviewController{
-	private static final String REVIEW_IMAGE_REPO="C:\\Users\\Administrator\\git\\Final\\project\\src\\main\\webapp\\resources\\image\\review_repo";
+	private static final String REVIEW_IMAGE_REPO="C:\\Users\\Administrator\\git\\project\\project\\src\\main\\webapp\\resources\\image\\review_repo";
 	
 	@Autowired
 	ReviewService reviewService;

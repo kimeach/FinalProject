@@ -64,7 +64,7 @@
 </style>
 <body>
 	<form name="modReviewForm" method="post" action="${contextPath}" enctype="multipart/form-data">
-		<div class="container" style="margin-left:45%;">
+		<div class="container" style="margin-left:25%;">
 				<c:choose>
 					<c:when test="${not empty review.imageFileName && review.imageFileName!='null'}">
 						<div>
@@ -173,11 +173,11 @@
 				</div>	
 			</div>
 		</div>
-		<div id="tr_btn_modify" style="margin-left:40%; margin-bottom:5px;">
+		<div id="tr_btn_modify" style="margin-left:5%; margin-bottom:5px;">
 			<input type=button value="수정 완료" onclick="fn_modify_review(this.form)" class="btn btn-secondary">
 			<input type=button value="수정 취소" onclick="backToList(this.form)" class="btn btn-secondary">
 		</div>
-		<div id="tr_btn" style="margin-left:40%;">
+		<div id="tr_btn" style="margin-left:5%;">
 			<%-- <c:if test="${member.id==review.id}">	
 				<input type=button value="후기 변경" onClick="fn_enable(this.form)" class="btn btn-secondary">
 				<input type=button value="후기 목록" onClick="backToList(this.form)" class="btn btn-secondary">

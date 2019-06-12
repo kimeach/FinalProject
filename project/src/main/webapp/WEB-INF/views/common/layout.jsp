@@ -16,34 +16,26 @@
         border: 0px solid #bcbcbc;
       }
       #header {
-       width: 100%;
+ width: 100%;
         padding: 0px;
         margin-bottom: 5px;
         border: 0px solid #bcbcbc;
         background-color: #EAEAEA;
       }
-      #content {
-        width: 100%;
-        height:630px;
-        padding: 5px;
-        margin-right: 5px;
-        float: left;
-        border: 0px solid #bcbcbc;
-      }
-      
       #sidebar-down {
-        padding: 3px 0px ;
+         padding: 3px 0px ;
         margin-bottom: 5px;
         border: 0px solid #bcbcbc;
         background-color: #EAEAEA;
         width: 100%;     
-        font-size:10px;  
-       /*  padding: 5px;       
-     	margin-right: 5px;
-        float: left; 
-        background-color: #E7E7E7;
+        font-size:10px; 
+      }
+      #content {
+        width: 100%;
+        padding: 5px;
+        margin-right: 5px;
+        float: left;
         border: 0px solid #bcbcbc;
-        font-size:10px; */
       }
       #footer {
       	width: 100%;    
