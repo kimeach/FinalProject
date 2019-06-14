@@ -13,8 +13,11 @@ private SqlSession spring;
 private int count=0;
 @Override
 public int ItemInsert(primaryVO vo) throws Exception {
-	return spring.insert("mapper.Item.insertItem", vo);
+
+return spring.insert("mapper.Item.insertItem", vo);
+
 }
+
 @Override
 public int ItemDelete(Map<String,Object> delMap) throws Exception {
 	return spring.delete("mapper.Item.deleteItem", delMap);

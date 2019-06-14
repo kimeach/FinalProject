@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+<link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -17,6 +18,9 @@
 <meta charset="utf-8">
 <title>매물 등록</title>
 <style>
+body{
+font-family: 'Jeju Gothic', sans-serif;
+}
 .map_wrap, .map_wrap * {
 	margin: 0;
 	padding: 0;

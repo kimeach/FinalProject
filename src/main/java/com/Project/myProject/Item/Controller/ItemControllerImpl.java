@@ -1,6 +1,10 @@
 package com.Project.myProject.Item.Controller;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Project.myProject.Paging;
+import com.Project.myProject.Common.Fileupload;
 import com.Project.myProject.Item.Service.ItemService;
 import com.Project.myProject.Item.VO.primaryVO;
 @RestController
@@ -93,23 +100,17 @@ public class ItemControllerImpl implements ItemController {
 	}
 	
 	@Override
-	public ModelAndView SearchAgency() throws Exception {
-	return null;
-	}
-	@Override
 	@RequestMapping(value = "/ItemInsert.do", method = { RequestMethod.GET, RequestMethod.POST })
 	// 물품 등록 창
-	public ModelAndView ItemAdd(primaryVO vo, HttpServletRequest request, HttpServletResponse response)
-	throws Exception {
+	public ModelAndView ItemAdd(primaryVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 	String viewName = (String) request.getAttribute("viewName");
-	if (request.getParameter("value") != null) {
-	if (request.getParameter("value").equals("before")) {
+
+	ModelAndView mav = new ModelAndView(viewName);
+	if (request.getParameter("value") != null)
 	ItemService.ItemAdd(vo);
+	return mav;
 	}
-	} else {
-	}
-		return new ModelAndView(viewName);
-	}
+	
 	@Override
 	public ModelAndView ItemDelete(String id, HttpServletRequest request, HttpServletResponse response)
 	throws Exception {
@@ -128,10 +129,21 @@ public class ItemControllerImpl implements ItemController {
 	@Override
 	@RequestMapping(value="/ItemInsertResult.do",method=RequestMethod.POST)
 	public ResponseEntity<String> AddItem(primaryVO vo,HttpServletResponse response,
-											 HttpServletRequest request) throws Exception {
+											 HttpServletRequest request,MultipartHttpServletRequest multipartRequest) throws Exception {
 		HttpHeaders http = new HttpHeaders();
 		http.add("Content-type", "text/html; charset=utf-8");
 		int result = ItemService.ItemAdd(vo);
+		
+		Iterator<String> fileNames = multipartRequest.getFileNames();
+		while(fileNames.hasNext()) {
+			String fileName = fileNames.next();
+			MultipartFile mFile = multipartRequest.getFile(fileName);
+			String originalFileName =mFile.getOriginalFilename();
+		System.out.println(originalFileName);
+		}
+		
+		
+		
 		String message ="<script>";
 		if (result == 0) {
 		message += "alert('가입에 실패 하였습니다.');";
@@ -184,5 +196,11 @@ public class ItemControllerImpl implements ItemController {
 	ModelAndView mav = new ModelAndView(viewName);
 	mav.addObject("list", ItemService.ItemViewSelect(authNum,autoNum));	
 	return mav;
+	}
+
+	@Override
+	public ModelAndView SearchAgency() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

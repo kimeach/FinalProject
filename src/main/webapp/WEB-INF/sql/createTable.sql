@@ -27,7 +27,7 @@ authNum varchar2(50) primary key,
 joinDate date default sysdate 
 );
 
-
+picture varchar2(100),
 
 create table item(
 authNum varchar2(60),
@@ -47,8 +47,8 @@ deposit  varchar2(100),
 itemSelect varchar2(50),
 business varchar2(100),
 explain varchar2(100),
+
 loadMap varchar2(100),
 constraint emo_authNum_fk foreign key(authNum) references Company_member(authNum)
 );
-
 drop table item;

@@ -1,5 +1,6 @@
 package com.Project.myProject.Item.VO;
 
+
 import org.springframework.stereotype.Component;
 
 @Component("primaryVO")
@@ -162,5 +163,4 @@ public primaryVO(String authNum, String autoNum, String itemAddr, String itemBui
 	this.explain = explain;
 	this.loadMap = loadMap;
 }
-
 }

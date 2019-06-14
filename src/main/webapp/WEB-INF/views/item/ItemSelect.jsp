@@ -6,12 +6,16 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
+<link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <title>매물 조회하기</title>
 <style>
+body{
+font-family: 'Jeju Gothic', sans-serif;
+}
 a {
 	color: black;
 }

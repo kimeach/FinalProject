@@ -49,7 +49,7 @@
 		<interceptor>
 			<mapping path="/*/*" />
 			<beans:bean
-				class="com.Project.myProject.interceptor.ViewNameInterceptor" />
+				class="com.Project.myProject.Common.interceptor.ViewNameInterceptor" />
 		</interceptor>
 	</interceptors>
 </beans:beans>

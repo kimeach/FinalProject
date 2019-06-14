@@ -22,6 +22,7 @@
 		<result property="business" column="business" /> <!-- 취급 업소 -->
 		<result property="explain" column="explain" /> <!-- 설명 -->
 		<!-- 사진 정보 -->
+		<!-- <result property="picture" column="picture" /> 사진 -->
 		<result property="loadMap" column="loadMap" /> <!-- 지도 -->
 	</resultMap>
 	<!-- 매물 등록 에대한 추가 작업 -->

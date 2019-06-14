@@ -7,6 +7,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html lang="en" dir="ltr">
 <head>
+<link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -16,6 +17,9 @@
 <meta charset="utf-8">
 <title>매물 상세보기</title>
   <style>
+body{
+font-family: 'Jeju Gothic', sans-serif;
+}
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {position:relative;width:100%;height:500px;}
@@ -52,7 +56,9 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
+
 </style>
+
 </head>
 <script src="${path}/resources/jquery.js"></script>
 <script>
