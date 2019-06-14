@@ -1,10 +1,13 @@
 package com.Project.myProject.Item.VO;
 
+
 import org.springframework.stereotype.Component;
 
 @Component("primaryVO")
 public class primaryVO {
 //기본정보
+private String authNum;	//authNum
+private String autoNum; //자동 번호
 private String itemAddr; //소재지 
 private String itemBuild; //건물명 
 private String itemWidth; //면적
@@ -12,52 +15,31 @@ private String itemLayer; //해당층
 private String total_Layer; // 총 층수
 private String itemParking; //주차가능대수
 private String itemPay; //관리비
-private String itemMoving; //입주가능일
+private String itemYear; //입주 연
+private String itemMonth; //입주 월
+private String itemDay; //입주 일
+
+
 //가격 정보
 private String deposit; //보증금
-private String ItemPrice;
-private String ItemSelect;
-private String Business; //취급 업소 (중개사무소 명)
+private String itemPrice; //itemSelect에 대한 가격
+private String itemSelect; //매매,전세,월세
+private String business; //취급 업소 (중개사무소 명)
 private String explain; //설명
 //사진 정보
-private String LoadMap; //지도
-public String getItemPrice() {
-	return ItemPrice;
-}
-public void setItemPrice(String itemPrice) {
-	ItemPrice = itemPrice;
-}
-public String getItemSelect() {
-	return ItemSelect;
-}
-public void setItemSelect(String itemSelect) {
-	ItemSelect = itemSelect;
-}
-public String getDeposit() {
-	return deposit;
-}
-public void setDeposit(String deposit) {
-	this.deposit = deposit;
-}
-public String getBusiness() {
-	return Business;
-}
-public void setBusiness(String business) {
-	Business = business;
-}
-public String getExplain() {
-	return explain;
-}
-public void setExplain(String explain) {
-	this.explain = explain;
-}
+private String loadMap; //지도
 
-
-public String getLoadMap() {
-	return LoadMap;
+public String getAuthNum() {
+	return authNum;
 }
-public void setLoadMap(String loadMap) {
-	LoadMap = loadMap;
+public void setAuthNum(String authNum) {
+	this.authNum = authNum;
+}
+public String getAutoNum() {
+	return autoNum;
+}
+public void setAutoNum(String autoNum) {
+	this.autoNum = autoNum;
 }
 public String getItemAddr() {
 	return itemAddr;
@@ -101,15 +83,69 @@ public String getItemPay() {
 public void setItemPay(String itemPay) {
 	this.itemPay = itemPay;
 }
-public String getItemMoving() {
-	return itemMoving;
+
+public String getDeposit() {
+	return deposit;
 }
-public void setItemMoving(String itemMoving) {
-	this.itemMoving = itemMoving;
+public void setDeposit(String deposit) {
+	this.deposit = deposit;
 }
-public primaryVO(String itemAddr, String itemBuild, String itemWidth, String itemLayer, String total_Layer,
-		String itemParking, String itemPay, String itemMoving, String deposit, String itemPrice, String itemSelect,
-		String business, String explain, String loadMap) {
+public String getItemPrice() {
+	return itemPrice;
+}
+public void setItemPrice(String itemPrice) {
+	this.itemPrice = itemPrice;
+}
+public String getItemSelect() {
+	return itemSelect;
+}
+public void setItemSelect(String itemSelect) {
+	this.itemSelect = itemSelect;
+}
+public String getBusiness() {
+	return business;
+}
+public void setBusiness(String business) {
+	this.business = business;
+}
+public String getExplain() {
+	return explain;
+}
+public void setExplain(String explain) {
+	this.explain = explain;
+}
+public String getLoadMap() {
+	return loadMap;
+}
+public void setLoadMap(String loadMap) {
+	this.loadMap = loadMap;
+}
+
+public primaryVO() {
+}
+public String getItemYear() {
+	return itemYear;
+}
+public void setItemYear(String itemYear) {
+	this.itemYear = itemYear;
+}
+public String getItemMonth() {
+	return itemMonth;
+}
+public void setItemMonth(String itemMonth) {
+	this.itemMonth = itemMonth;
+}
+public String getItemDay() {
+	return itemDay;
+}
+public void setItemDay(String itemDay) {
+	this.itemDay = itemDay;
+}
+public primaryVO(String authNum, String autoNum, String itemAddr, String itemBuild, String itemWidth, String itemLayer,
+		String total_Layer, String itemParking, String itemPay, String itemYear, String itemMonth, String itemDay,
+		String deposit, String itemPrice, String itemSelect, String business, String explain, String loadMap) {
+	this.authNum = authNum;
+	this.autoNum = autoNum;
 	this.itemAddr = itemAddr;
 	this.itemBuild = itemBuild;
 	this.itemWidth = itemWidth;
@@ -117,15 +153,14 @@ public primaryVO(String itemAddr, String itemBuild, String itemWidth, String ite
 	this.total_Layer = total_Layer;
 	this.itemParking = itemParking;
 	this.itemPay = itemPay;
-	this.itemMoving = itemMoving;
+	this.itemYear = itemYear;
+	this.itemMonth = itemMonth;
+	this.itemDay = itemDay;
 	this.deposit = deposit;
-	ItemPrice = itemPrice;
-	ItemSelect = itemSelect;
-	Business = business;
+	this.itemPrice = itemPrice;
+	this.itemSelect = itemSelect;
+	this.business = business;
 	this.explain = explain;
-	LoadMap = loadMap;
+	this.loadMap = loadMap;
 }
-public primaryVO() {
-}
-
 }

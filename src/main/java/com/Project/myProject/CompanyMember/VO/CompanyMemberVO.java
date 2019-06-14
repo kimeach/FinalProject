@@ -75,11 +75,11 @@ public String getMainDeal() {
 public void setMainDeal(String mainDeal) {
 	this.mainDeal = mainDeal;
 }
-public String getAutoNum() {
+public String getAuthNum() {
 	return authNum;
 }
-public void setAutoNum(String autoNum) {
-	this.authNum = autoNum;
+public void setAuthNum(String authNum) {
+	this.authNum = authNum;
 }
 public Date getJoinDate() {
 	return joinDate;
